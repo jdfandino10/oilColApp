@@ -9,12 +9,14 @@
 // the list controller
     mod.controller("sensorListCtrl", ["$scope", "$resource", "apiUrl", function($scope, $resource, apiUrl) {
         var sensores = $resource(apiUrl + "/sensores"); // a RESTful-capable resource object
-        $scope.sensores = sensores.query(); // for the list of sensores in public/html/main.html
+        //$scope.sensores = sensores.query(); // for the list of sensores in public/html/main.html
         $scope.tipos= tipoOr;
+        /*ESTO YA ESTABA COMENTADO
         //$scope.getMediciones = function(p){
           //  var mediciones = $resource(apiUrl +"/campos?periodo="+p);
             //$scope.mediciones = mediciones.query();
         //};
+        */
         $scope.sensores = [{"nombre":"asdf","tipo":1}];
     }]);
 

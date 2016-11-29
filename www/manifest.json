@@ -1,7 +1,7 @@
 {
-  "name": "OilCol",
-  "short_name": "OilCol",
-  "start_url": "index.html",
+  "name": "OilColApp",
+  "short_name": "OCApp",
+  "start_url": "http://localhost:8100",
   "display": "standalone",
   "icons": [{
     "src": "img/ionic.png",
