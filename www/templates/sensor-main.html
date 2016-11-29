@@ -1,0 +1,33 @@
+<!--Author: Sari Haj Hussein-->
+<ion-view view-title="Sensor">
+<ion-content>
+<div role="main" class="padding">
+	
+			<h2>Sensores</h2>
+					
+                    <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                	<ul class="list">
+                		<li class="item">
+							<div class="row">
+								<div class="col"><b>Nombre</b></div>
+								<div class="col"><b>Tipo</b></div>
+								<div class="col col-10"><b>Info</b></div>
+							</div>
+						</li>
+					</ul>
+					
+					<ul class="list">
+                		<li class="item" ng-repeat="sensor in sensores| orderBy:['nombre','tipo']">
+							<div class="row">
+								<div class="col">{{sensor.nombre}} </div>
+								<div class="col"> {{tipos[sensor.tipo]}}</div>
+								<div class="col col-10"><a href="/sensor/edit/{{sensor.id}}"><i class="icon ion-android-create"></i></a></div>
+							</div>
+						</li>
+					</ul>
+				
+		</div>
+	</div>
+</div>
+</ion-content>
+</ion-view>

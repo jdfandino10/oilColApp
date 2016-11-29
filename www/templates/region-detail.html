@@ -1,0 +1,74 @@
+<!--Author: Sari Haj Hussein-->
+<ion-view view-title="Region-detail">
+<ion-content>
+<div role="main" class="padding">
+
+		
+        
+                <div data-ng-show="region.id"><h2>Detalles de la región</h2></div>
+                <div data-ng-show="region.id==null"><h2>Agregar región</h2></div>
+
+                <form name="detailForm" role="form" class="form-horizontal">
+                    <fieldset>
+                        <div class="list">
+                            <label class="item item-input item-stacked-label" for="nombre">
+                                <span class="input-label">Nombre </span>
+                                <span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
+                                <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="region.nombre" placeholder="Introduzca el nombre" required>
+                            </label>
+                        
+                            <label class="item item-input item-stacked-label" for="area"><span class="input-label">Área</span>
+                            <span data-ng-show="detailForm.area.$error.required" class="req">*Requerido</span>
+                            <span data-ng-show="detailForm.area.$error.number" class="req">*No es un número</span>
+                            <input type="number" class="form-control" id="area" name="area" data-ng-model="region.area" placeholder="Introduzca el area" required>
+                            </label>
+                        
+                        </div>
+                        <div class="list" data-ng-show ="region.id">
+                            <label class="item item-input item-stacked-label" for="campo">Campos</label>
+
+                                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                                <div class = "row">
+                                    <div class="col" data-ng-show="region.campos.length > 0">Nombre</div>
+                                    <div class="col" data-ng-show="region.campos.length > 0">Latitud</div>
+
+                                    <div class="col" data-ng-show="region.campos.length > 0">Longitud</div>
+                                    <div class="col" data-ng-show="region.campos.length == 0">Todavía no hay campos para esta región. ¡Agrega uno!</div>
+                                    <div class="col"><a href="/region/{{region.id}}/campo/create"><i class="icon ion-plus-circled"></i></a></div>
+                                </div>
+                                <div class="row" ng-repeat="campo in region.campos| orderBy:['nombre','latitud', longitud]">
+                                    <div class="col">{{campo.nombre}} </div>
+                                    <div class="col"> {{campo.latitud}}</div>
+                                    <div class="col"> {{campo.longitud}}</div>
+
+                                    <div class="col col-10"><a href="/campo/edit/{{campo.id}}"><i class="icon ion-android-create"></i></a></div>
+                                </div>
+
+                            </div>
+
+                        <br />
+
+                        <button data-ng-click="go('/region')" class="button button-assertive">Cancelar</button>
+                        <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                        <button data-ng-click="delete()" data-ng-show="region.id" class="btn btn-danger">Borrar</button>
+                    </fieldset>
+                </form>
+
+                <h3>Sensor mas frecuente</h3>
+                <label class="item item-input item-stacked-label" for="sensormasfrecuente">Sensor</label>
+                
+                    <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                    <div class="row">
+                        <div class="col" data-ng-show="sensormasfrecuente.id"><b>Nombre</b></div>
+                        <div class="col" data-ng-show="sensormasfrecuente.id"><b>Tipo Sensor</b></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">{{sensormasfrecuente.nombre}} </div>
+                        <div class="col">{{tipos_sensor[sensormasfrecuente.tipo]}} </div>
+                    </div>
+
+            
+</div>
+</ion-content>
+</ion-view>

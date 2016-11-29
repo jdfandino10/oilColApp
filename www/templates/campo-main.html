@@ -1,0 +1,45 @@
+<!--Author: Sari Haj Hussein-->
+<ion-view view-title="Campo">
+<ion-content>
+<div role="main" class="padding">
+			<h2 class="padding">Campos</h2>
+                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                <ul class="list">
+                	<li class="item">
+						<div class="row">
+							<div class="col col-10"><b>ID</b></div>
+							<div class="col"><b>Nombre</b></div>
+							<div class="col"><b>Latitud</b></div>
+							<div class="col"><b>Longitud</b></div>
+							<div class="col col-10"><b>Info</b></div>
+						</div>
+					</li>
+				</ul>
+				<ul class="list">
+                	<li class="item" ng-repeat="campo in campos| orderBy:['nombre','area']">
+						<div class="row">
+							<div class="col col-10"> {{campo.id}}</div>
+							<div class="col">{{campo.nombre}} </div>
+							<div class="col"> {{campo.latitud}}</div>
+							<div class="col"> {{campo.longitud}}</div>
+							<div class="col col-10"><a href="campo/edit/{{campo.id}}"><i class="icon ion-android-create"></i></a></div>
+						</div>
+					</li>
+				</ul>
+					
+				
+
+			<h3>Filtros Temporales</h3>
+			<div class="list">
+				<label class="item item-input item-select">
+					<div class="input-label">
+    				  Filtro
+    				</div>
+					<select ng-model="filtro" ng-options="f for f in filtros"></select>
+				</label>
+			</div>
+			<button data-ng-click="filter()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-block button-positive">Filtrar</button>
+
+</div>
+</ion-content>
+</ion-view>

@@ -1,0 +1,27 @@
+<!--Author: Sari Haj Hussein-->
+<ion-view view-title="Region">
+<ion-content>
+<div role="main" class="padding">
+			<h2 class="padding">Regiones</h2>
+                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                <ul class="list">
+                	<li class="item">
+						<div class="row">
+							<div class="col"><b>Nombre</b></div>
+							<div class="col"><b>Área</b></div>
+							<div class="col col-10"><a href="region/create"><i class="icon ion-plus-circled"></i></a></div>
+						</div>
+					</li>
+				</ul>
+				<ul class="list">
+					<li class="item" ng-repeat="region in regiones| orderBy:['nombre','area']">
+						<div class="row" >
+							<div class="col">{{region.nombre}} </div>
+                            <div class="col"> {{region.area}}</div>
+							<div class="col col-10"><a href="region/edit/{{region.id}}"><i class="icon ion-android-create"></i></a></div>
+						</div>
+					</li>
+				</ul>
+</div>
+</ion-content>
+</ion-view>

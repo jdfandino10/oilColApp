@@ -1,0 +1,37 @@
+<!--Author: Sari Haj Hussein-->
+<ion-view view-title="Pozo">
+<ion-content>
+<div role="main" class="padding">
+
+            <h2>Pozos</h2>
+                     
+                    <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                    <ul class="list">
+                        <li class="item">
+                            <div class="row">
+                                <div class="col"><b>ID</b></div>
+                                <div class="col"><b>Estado</b></div>
+                                <div class="col col-10"><b>Info</b></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list">
+                        <li class="item" ng-repeat="pozo in pozos| orderBy:['id','estado']">
+                            <div class="row">
+                                <div class="col">{{pozo.id}} </div>
+                                <div class="col"> {{pozo.estado}}</div>
+                                <div class="col col-10"><a href="/pozo/edit/{{pozo.id}}"><i class="icon ion-android-create"></i></a></div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                
+            <h3>Filtros Temporales</h3>
+            <div class="panel-body">
+                <select ng-model="filtro" ng-options="f for f in filtros"></select>
+                <button data-ng-click="filter()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Filtrar</button>
+            
+            </div>
+</div>
+</ion-content>
+</ion-view>

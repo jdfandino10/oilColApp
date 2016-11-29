@@ -1,0 +1,53 @@
+<!--Based on: Sari Haj Hussein-->
+<ion-view view-title="Pozo-detail">
+<ion-content>
+<div role="main" class="padding">
+
+
+
+                <div data-ng-show="pozo.id"><h2>Detalles del pozo</h2></div>
+                <div data-ng-show="pozo.id==null"><h2>Agregar pozo</h2></div>
+
+                <form name="detailForm" role="form" class="form-horizontal">
+                    <fieldset>
+                        <div class="list">
+                            <label class="item item-input item-stacked-label" for="estado">
+                            <span class="input-label">Estado</span>
+                            <span data-ng-show="detailForm.estado.$error.required" class="req">*Requerido</span>
+                            <input type="text" class="form-control" id="estado" name="estado" data-ng-model="pozo.estado" placeholder="Introduzca el estado" required>
+                            </label>
+                        </div>
+
+                        <div class="control-group" data-ng-show ="pozo.id">
+                            <label class="item item-input item-stacked-label" for="sensor">Sensores</label>
+                                 
+                                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                                <div class="row">
+                                    <div class="col" data-ng-show="pozo.sensores.length > 0">Nombre</div>
+                                    <div class="col" data-ng-show="pozo.sensores.length > 0">Tipo Sensor</div>
+                                    <div class="col" data-ng-show="pozo.sensores.length == 0">Todavía no hay sensores para este pozo. ¡Agrega uno!</div>
+                                    <div class="col"><a href="/pozo/{{pozo.id}}/sensor/create"><i class="icon ion-plus-circled"></i></a></div>
+                                </div>
+                                 
+                                
+                                <div class="row" ng-repeat="sensor in pozo.sensores| orderBy:['nombre']">
+                                    <div class="col">{{sensor.nombre}} </div>
+                                    <div class="col">{{tipos_sensor[sensor.tipo]}} </div>
+                                    <div class="col"><a href="/sensor/edit/{{sensor.id}}"><i class="icon ion-android-create"></i></a></div>
+                                </div>
+                                
+                            
+
+                        </div>
+
+                        <br />
+
+                        <button data-ng-click="go('/pozo')" class="button button-assertive">Cancelar</button>
+                        <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                        <button data-ng-click="delete()" data-ng-show="pozo.id" class="btn btn-danger">Borrar</button>
+                    </fieldset>
+                </form>
+            
+</div>
+</ion-content>
+</ion-view>

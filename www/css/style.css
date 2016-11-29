@@ -1,0 +1,14 @@
+/* Empty. Add your own CSS if you like */
+.req{
+	color:red;
+	text-align: right;
+	font-size:0.7em;
+}
+fieldset{
+	border:none;
+}
+.list{
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}

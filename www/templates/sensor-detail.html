@@ -1,0 +1,53 @@
+<!--Author: Sari Haj Hussein-->
+<ion-view view-title="Sensor-detail">
+<ion-content>
+<div role="main" class="padding">
+
+
+
+                <div data-ng-show="sensor.id"><h2>Detalles del sensor</h2></div>
+                <div data-ng-show="sensor.id==null"><h2>Agregar sensor</h2></div>
+
+                <form name="detailForm" role="form" class="form-horizontal">
+                    <fieldset>
+                        <div class="list">
+                            <label class="item item-input item-stacked-label" for="nombre">
+                                <span class="input-label">Nombre </span>
+                                <span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
+                                <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="sensor.nombre" placeholder="Introduzca el nombre" required>
+                            </label>
+                            <label class="item item-input item-select" for="tipo">
+                            <div class="input-label">Tipo sensor</div>
+                            <select id="tipo" name="tipo" data-ng-model="sensor.tipo" ng-options="tipos_string[x] for x in tipos"></select>
+                            <span data-ng-show="detailForm.tipo.$error.required" class="req">*Requerido</span>
+                            </label>
+                        </div>
+
+                        <div class="control-group" data-ng-show ="sensor.id">
+                            <label class="item item-input item-stacked-label" for="medicion">Mediciones</label>
+                                 
+                                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                                <div class="row">
+                                    <div class="col" data-ng-show="sensor.mediciones.length > 0">Fecha</div>
+                                    <div class="col" data-ng-show="sensor.mediciones.length > 0">Valor</div>
+                                    <div class="col" data-ng-show="sensor.mediciones.length == 0">Todavía no hay mediciones para este sensor. Esperando a recibirlas...</div>
+                                </div>
+                                 
+                                
+                                <div class="row" ng-repeat="medicion in sensor.mediciones| orderBy:['nombre','latitud', longitud]">
+                                    <div class="col">{{medicion.fecha | date : "medium" }} </div>
+                                    <div class="col"> {{medicion.valor}}</div>
+                                </div>                            
+                        </div>
+
+                        <br />
+
+                        <button data-ng-click="go('/sensor')" class="button button-assertive">Cancelar</button>
+                        <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                        <button data-ng-click="delete()" data-ng-show="sensor.id" class="btn btn-danger">Borrar</button>
+                    </fieldset>
+                </form>
+            
+</div>
+</ion-content>
+</ion-view>

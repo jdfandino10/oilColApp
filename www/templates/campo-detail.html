@@ -1,0 +1,68 @@
+<!--Based on: Sari Haj Hussein-->
+<ion-view view-title="Campo-detail">
+<ion-content>
+<div role="main" class="padding">
+
+
+
+                <div data-ng-show="campo.id"><h2>Detalles del campo</h2></div>
+                <div data-ng-show="campo.id==null"><h2>Agregar campo</h2></div>
+
+                <form name="detailForm" role="form" class="form-horizontal">
+                   <fieldset>
+                        <div class="list">
+                            <label class="item item-input item-stacked-label" for="nombre">
+                                <span class="input-label">Nombre </span><span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
+                                <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="campo.nombre" placeholder="Introduzca el nombre" required>
+                            </label>
+
+
+                    <label class="item item-input item-stacked-label" for="latitud">
+                        <span class="input-label">Latitud</span>
+                        <span data-ng-show="detailForm.latitud.$error.required" class="req">*Requerido</span>
+                        <span data-ng-show="detailForm.latitud.$error.number" class="req">*No es un número</span>
+                        <input type="number" class="form-control" id="latitud" name="latitud" data-ng-model="campo.latitud" placeholder="Introduzca la latitud" required>
+                    </label>
+                    
+
+                    <label class="item item-input item-stacked-label" for="longitud">
+                        <span class="input-label">Longitud</span>
+                        <span data-ng-show="detailForm.longitud.$error.required" class="req">*Requerido</span>
+                        <span data-ng-show="detailForm.longitud.$error.number" class="req">*No es un número</span>
+                        <input type="number" class="form-control" id="longitud" name="longitud" data-ng-model="campo.longitud" placeholder="Introduzca la longitud" required>
+                    </label>
+                    
+                </div>
+
+                <div class="control-group" data-ng-show ="campo.id">
+                    <label class="item item-input item-stacked-label" for="pozo">
+                        <span class="input-label">Pozos</span>
+                    </label>
+                         
+                        <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+                        <div class="row">
+                            <div class="col" data-ng-show="campo.pozos.length > 0">ID</div>
+                            <div class="col" data-ng-show="campo.pozos.length > 0">Estado</div>
+                            <div class="col" data-ng-show="campo.pozos.length == 0">Todavía no hay pozos para esta región. ¡Agrega uno!</div>
+                            <div class="col"><a href="/campo/{{campo.id}}/pozo/create"><i class="icon ion-plus-circled"></i></a></div>
+                        </div>
+                         
+                        
+                        <div class="row" ng-repeat="pozo in campo.pozos| orderBy:['nombre']">
+                            <div class="col"> {{pozo.id}}</div>
+                            <div class="col"> {{pozo.estado}}</div>
+                            <div class="col"><a href="/pozo/edit/{{pozo.id}}"><i class="icon ion-android-create"></i></a></div>
+                        </div>
+                </div>
+
+                <br />
+
+                <button data-ng-click="go('/campo')" class="button button-assertive">Cancelar</button>
+                <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                <button data-ng-click="delete()" data-ng-show="campo.id" class="btn btn-danger">Borrar</button>
+            </fieldset>
+            </form>
+
+</div>
+</ion-content>
+</ion-view>
