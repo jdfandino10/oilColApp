@@ -28,21 +28,27 @@
                             <label class="item item-input item-stacked-label" for="campo">Campos</label>
 
                                 <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                                <div class = "row">
-                                    <div class="col" data-ng-show="region.campos.length > 0">Nombre</div>
-                                    <div class="col" data-ng-show="region.campos.length > 0">Latitud</div>
-
-                                    <div class="col" data-ng-show="region.campos.length > 0">Longitud</div>
-                                    <div class="col" data-ng-show="region.campos.length == 0">Todavía no hay campos para esta región. ¡Agrega uno!</div>
-                                    <div class="col"><a href="/region/{{region.id}}/campo/create"><i class="icon ion-plus-circled"></i></a></div>
-                                </div>
-                                <div class="row" ng-repeat="campo in region.campos| orderBy:['nombre','latitud', longitud]">
-                                    <div class="col">{{campo.nombre}} </div>
-                                    <div class="col"> {{campo.latitud}}</div>
-                                    <div class="col"> {{campo.longitud}}</div>
-
-                                    <div class="col col-10"><a href="/campo/edit/{{campo.id}}"><i class="icon ion-android-create"></i></a></div>
-                                </div>
+                                <ul class="list">
+                                    <li class="item">
+                                        <div class="row">
+                                            <div class="col" data-ng-show="region.campos.length > 0">Nombre</div>
+                                            <div class="col" data-ng-show="region.campos.length > 0">Latitud</div>
+                                            <div class="col" data-ng-show="region.campos.length > 0">Longitud</div>
+                                            <div class="col" data-ng-show="region.campos.length == 0">Todavía no hay campos para esta región. ¡Agrega uno!</div>
+                                            <div class="col"><a href="/region/{{region.id}}/campo/create"><i class="icon ion-plus-circled"></i></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="list">
+                                    <li class="item" ng-repeat="campo in region.campos| orderBy:['nombre','latitud', longitud]">
+                                        <div class="row">
+                                            <div class="col">{{campo.nombre}} </div>
+                                            <div class="col"> {{campo.latitud}}</div>
+                                            <div class="col"> {{campo.longitud}}</div>
+                                            <div class="col col-10"><a href="/campo/edit/{{campo.id}}"><i class="icon ion-android-create"></i></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
 
                             </div>
 
@@ -58,15 +64,22 @@
                 <label class="item item-input item-stacked-label" for="sensormasfrecuente">Sensor</label>
                 
                     <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                    <div class="row">
-                        <div class="col" data-ng-show="sensormasfrecuente.id"><b>Nombre</b></div>
-                        <div class="col" data-ng-show="sensormasfrecuente.id"><b>Tipo Sensor</b></div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col">{{sensormasfrecuente.nombre}} </div>
-                        <div class="col">{{tipos_sensor[sensormasfrecuente.tipo]}} </div>
-                    </div>
+                    <ul class="list">
+                        <li class="item">
+                            <div class="row">
+                                <div class="col" data-ng-show="sensormasfrecuente.id"><b>Nombre</b></div>
+                                <div class="col" data-ng-show="sensormasfrecuente.id"><b>Tipo Sensor</b></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="list">
+                        <li class="item">
+                            <div class="row">
+                                <div class="col">{{sensormasfrecuente.nombre}} </div>
+                                <div class="col">{{tipos_sensor[sensormasfrecuente.tipo]}} </div>
+                            </div>
+                        </li>
+                    </ul>
 
             
 </div>

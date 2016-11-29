@@ -22,19 +22,25 @@
                             <label class="item item-input item-stacked-label" for="sensor">Sensores</label>
                                  
                                 <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                                <div class="row">
-                                    <div class="col" data-ng-show="pozo.sensores.length > 0">Nombre</div>
-                                    <div class="col" data-ng-show="pozo.sensores.length > 0">Tipo Sensor</div>
-                                    <div class="col" data-ng-show="pozo.sensores.length == 0">Todavía no hay sensores para este pozo. ¡Agrega uno!</div>
-                                    <div class="col"><a href="/pozo/{{pozo.id}}/sensor/create"><i class="icon ion-plus-circled"></i></a></div>
-                                </div>
-                                 
-                                
-                                <div class="row" ng-repeat="sensor in pozo.sensores| orderBy:['nombre']">
-                                    <div class="col">{{sensor.nombre}} </div>
-                                    <div class="col">{{tipos_sensor[sensor.tipo]}} </div>
-                                    <div class="col"><a href="/sensor/edit/{{sensor.id}}"><i class="icon ion-android-create"></i></a></div>
-                                </div>
+                                <ul class="list">
+                                    <li class="item">
+                                        <div class="row">
+                                            <div class="col" data-ng-show="pozo.sensores.length > 0">Nombre</div>
+                                            <div class="col" data-ng-show="pozo.sensores.length > 0">Tipo Sensor</div>
+                                            <div class="col" data-ng-show="pozo.sensores.length == 0">Todavía no hay sensores para este pozo. ¡Agrega uno!</div>
+                                            <div class="col"><a href="/pozo/{{pozo.id}}/sensor/create"><i class="icon ion-plus-circled"></i></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <ul class="list">
+                                    <li class="item" ng-repeat="sensor in pozo.sensores| orderBy:['nombre']">
+                                        <div class="row">
+                                            <div class="col">{{sensor.nombre}} </div>
+                                            <div class="col">{{tipos_sensor[sensor.tipo]}} </div>
+                                            <div class="col"><a href="/sensor/edit/{{sensor.id}}"><i class="icon ion-android-create"></i></a></div>
+                                        </div>
+                                    </li>
+                                </ul>
                                 
                             
 

@@ -27,11 +27,16 @@
                     
                 
             <h3>Filtros Temporales</h3>
-            <div class="panel-body">
+            <div class="list">
+                <label class="item item-input item-select">
+                <div class="input-label">
+                Filtro
+                </div>
                 <select ng-model="filtro" ng-options="f for f in filtros"></select>
-                <button data-ng-click="filter()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Filtrar</button>
-            
+                </label>
             </div>
+                <button data-ng-click="filter()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-block button-positive">Filtrar</button>
+            
 </div>
 </ion-content>
 </ion-view>

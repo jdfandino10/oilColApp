@@ -27,17 +27,23 @@
                             <label class="item item-input item-stacked-label" for="medicion">Mediciones</label>
                                  
                                 <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                                <div class="row">
-                                    <div class="col" data-ng-show="sensor.mediciones.length > 0">Fecha</div>
-                                    <div class="col" data-ng-show="sensor.mediciones.length > 0">Valor</div>
-                                    <div class="col" data-ng-show="sensor.mediciones.length == 0">Todavía no hay mediciones para este sensor. Esperando a recibirlas...</div>
-                                </div>
-                                 
-                                
-                                <div class="row" ng-repeat="medicion in sensor.mediciones| orderBy:['nombre','latitud', longitud]">
-                                    <div class="col">{{medicion.fecha | date : "medium" }} </div>
-                                    <div class="col"> {{medicion.valor}}</div>
-                                </div>                            
+                                <ul class="list">
+                                    <li class="item">
+                                        <div class="row">
+                                            <div class="col" data-ng-show="sensor.mediciones.length > 0">Fecha</div>
+                                            <div class="col" data-ng-show="sensor.mediciones.length > 0">Valor</div>
+                                            <div class="col" data-ng-show="sensor.mediciones.length == 0">Todavía no hay mediciones para este sensor. Esperando a recibirlas...</div>
+                                        </div>
+                                    </li>
+                                </ul> 
+                                <ul class="list">
+                                    <li class="item" ng-repeat="medicion in sensor.mediciones| orderBy:['nombre','latitud', longitud]">
+                                        <div class="row">
+                                            <div class="col">{{medicion.fecha | date : "medium" }} </div>
+                                            <div class="col"> {{medicion.valor}}</div>
+                                        </div> 
+                                    </li>
+                                </ul>                          
                         </div>
 
                         <br />

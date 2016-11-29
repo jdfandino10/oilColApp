@@ -40,19 +40,25 @@
                     </label>
                          
                         <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                        <div class="row">
-                            <div class="col" data-ng-show="campo.pozos.length > 0">ID</div>
-                            <div class="col" data-ng-show="campo.pozos.length > 0">Estado</div>
-                            <div class="col" data-ng-show="campo.pozos.length == 0">Todavía no hay pozos para esta región. ¡Agrega uno!</div>
-                            <div class="col"><a href="/campo/{{campo.id}}/pozo/create"><i class="icon ion-plus-circled"></i></a></div>
-                        </div>
-                         
-                        
-                        <div class="row" ng-repeat="pozo in campo.pozos| orderBy:['nombre']">
-                            <div class="col"> {{pozo.id}}</div>
-                            <div class="col"> {{pozo.estado}}</div>
-                            <div class="col"><a href="/pozo/edit/{{pozo.id}}"><i class="icon ion-android-create"></i></a></div>
-                        </div>
+                        <ul class="list">
+                            <li class="item">
+                                <div class="row">
+                                    <div class="col" data-ng-show="campo.pozos.length > 0">ID</div>
+                                    <div class="col" data-ng-show="campo.pozos.length > 0">Estado</div>
+                                    <div class="col" data-ng-show="campo.pozos.length == 0">Todavía no hay pozos para esta región. ¡Agrega uno!</div>
+                                    <div class="col"><a href="/campo/{{campo.id}}/pozo/create"><i class="icon ion-plus-circled"></i></a></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="list">
+                            <li class="item" ng-repeat="pozo in campo.pozos| orderBy:['nombre']">
+                                <div class="row" >
+                                    <div class="col"> {{pozo.id}}</div>
+                                    <div class="col"> {{pozo.estado}}</div>
+                                    <div class="col"><a href="/pozo/edit/{{pozo.id}}"><i class="icon ion-android-create"></i></a></div>
+                                </div>
+                            </li>
+                        </ul>
                 </div>
 
                 <br />
