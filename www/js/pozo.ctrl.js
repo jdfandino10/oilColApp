@@ -82,6 +82,20 @@
         $scope.go = function(path) {
           $location.path(path);
         };
+
+        $scope.doRefresh=function()
+        {
+          var ShowPozo = $resource(apiUrl +"/pozos/:id", {id:"@id"}); // a RESTful-capable resource object
+
+          $scope.tipos_sensor = ['Fluido', 'Energia', 'Temperatura', 'Emergencia'];
+
+          if ($stateParams.id) {
+            // retrieve the corresponding celebrity from the database
+            // $scope.pozo.id is now populated so the Delete button will appear in the detailForm in public/html/detail.html
+            $scope.pozo = ShowPozo.get({id: $stateParams.id});
+            $scope.dbContent = ShowPozo.get({id: $stateParams.id}); // this is used in the noChange function
+          }
+        };
     }]);
 
 })(window.angular)

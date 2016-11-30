@@ -1,6 +1,10 @@
 <!--Author: Sari Haj Hussein-->
 <ion-view view-title="Sensor-detail">
 <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div role="main" class="padding">
 
 
@@ -26,8 +30,7 @@
                         <div class="control-group" data-ng-show ="sensor.id">
                             <label class="item item-input item-stacked-label" for="medicion">Mediciones</label>
 
-                                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                                <ul class="list">
+                               <ul class="list">
                                     <li class="item">
                                         <div class="row">
                                             <div class="col" data-ng-show="sensor.mediciones.length > 0">Fecha</div>

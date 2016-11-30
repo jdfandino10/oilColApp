@@ -1,7 +1,10 @@
 <!--Author: Sari Haj Hussein-->
 <ion-view view-title="Region-detail">
 <ion-content>
-
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div role="main" class="padding">
 
                 <div data-ng-show="region.id"><h2>Detalles de la región</h2></div>
@@ -26,8 +29,7 @@
                         <div class="list" data-ng-show ="region.id">
                             <label class="item item-input item-stacked-label" for="campo">Campos</label>
 
-                                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
-                                <ul class="list">
+                               <ul class="list">
                                     <li class="item">
                                         <div class="row">
                                             <div class="col" data-ng-show="region.campos.length > 0">Nombre</div>
@@ -62,7 +64,6 @@
                 <h3>Sensor mas frecuente</h3>
                 <label class="item item-input item-stacked-label" for="sensormasfrecuente">Sensor</label>
 
-                    <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
                     <ul class="list">
                         <li class="item">
                             <div class="row">

@@ -91,6 +91,20 @@
         $scope.go = function(path) {
           $location.path(path);
         };
+
+        $scope.doRefresh=function()
+        {
+          var ShowSensor = $resource(apiUrl +"/sensores/:id", {id:"@id"}); // a RESTful-capable resource object
+          $scope.tipos_string = tipoOr;
+          $scope.tipos = [0,1,2,3];
+          if ($stateParams.id) {
+            // retrieve the corresponding celebrity from the database
+            // $scope.sensor.id is now populated so the Delete button will appear in the detailForm in public/html/detail.html
+            $scope.sensor = ShowSensor.get({id: $stateParams.id});
+            $scope.dbContent = ShowSensor.get({id: $stateParams.id}); // this is used in the noChange function
+          }
+
+        };
     }]);
 
 })(window.angular)

@@ -35,7 +35,7 @@
         // to save a campo
         $scope.save = function(campo) {
             var CreateCampo = $resource(apiUrl +"/regiones/"+$stateParams.id+"/campos"); // a RESTful-capable resource object
-            CreateCampo.save($scope.campo); // $scope.campo comes from the detailForm in public/html/detail.html
+            CreateCampo.save(campo); // $scope.campo comes from the detailForm in public/html/detail.html
             $timeout(function() { $scope.go('/campo'); }); // go back to public/html/main.html
         };
         $scope.go = function(path) {
@@ -81,6 +81,17 @@
 
         $scope.go = function(path) {
           $location.path(path);
+        };
+
+        $scope.doRefresh=function()
+        {
+          var ShowCampo = $resource(apiUrl +"/campos/:id", {id:"@id"}); // a RESTful-capable resource object
+          if ($stateParams.id) {
+            // retrieve the corresponding celebrity from the database
+            // $scope.campo.id is now populated so the Delete button will appear in the detailForm in public/html/detail.html
+            $scope.campo = ShowCampo.get({id: $stateParams.id});
+            $scope.dbContent = ShowCampo.get({id: $stateParams.id}); // this is used in the noChange function
+          }
         };
     }]);
 

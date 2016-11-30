@@ -50,7 +50,6 @@
         }
 
         var ShowRegion = $resource(apiUrl +"/regiones/:id", {id:"@id"}); // a RESTful-capable resource object
-       console.log($stateParams.id)
         if ($stateParams.id) {
             // retrieve the corresponding celebrity from the database
             // $scope.region.id is now populated so the Delete button will appear in the detailForm in public/html/detail.html
@@ -90,6 +89,28 @@
           $location.path(path);
         };
 
+        $scope.doRefresh=function()
+        {
+          $scope.tipos_sensor = ['Fluido', 'Energia', 'Temperatura', 'Emergencia'];
+
+          var SensorMas = $resource(apiUrl +"/regiones/:id/sensormasfrecuente", {id:"@id"}); // a RESTful-capable resource object
+          if ($stateParams.id) {
+            $scope.sensormasfrecuente = SensorMas.get({id: $stateParams.id});
+          }
+
+          var ShowRegion = $resource(apiUrl +"/regiones/:id", {id:"@id"}); // a RESTful-capable resource object
+          if ($stateParams.id) {
+            // retrieve the corresponding celebrity from the database
+            // $scope.region.id is now populated so the Delete button will appear in the detailForm in public/html/detail.html
+            $scope.region = ShowRegion.get({id: $stateParams.id});
+            $scope.region.$promise.then(function(result){
+              $scope.region = result;
+              console.log($scope.region);
+            });
+            $scope.dbContent = ShowRegion.get({id: $stateParams.id}); // this is used in the noChange function
+          }
+
+        };
     }]);
 
 })(window.angular)

@@ -1,6 +1,10 @@
 <!--Based on: Sari Haj Hussein-->
 <ion-view view-title="Pozo-detail">
 <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div role="main" class="padding">
 
 
@@ -21,7 +25,6 @@
                         <div class="control-group" data-ng-show ="pozo.id">
                             <label class="item item-input item-stacked-label" for="sensor">Sensores</label>
 
-                                <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
                                 <ul class="list">
                                     <li class="item">
                                         <div class="row">
