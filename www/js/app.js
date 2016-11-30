@@ -248,7 +248,10 @@ app.config([
         requireBase: false
       }).hashPrefix('!'); // enable the new HTML5 routing and history API
       // return $locationProvider.html5Mode(true).hashPrefix('!'); // enable the new HTML5 routing and history API
-    }]);
+    }]).
+config(['$httpProvider', function($httpProvider){
+$httpProvider.defaults.withCredentials = true;
+}]);
 
 app.controller('AppCtrl', ['$scope', 'ionicModal', '$location', function ($scope, $ionicModal, $location) {
     $scope.go = function(path) {
