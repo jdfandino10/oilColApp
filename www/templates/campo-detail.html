@@ -23,7 +23,7 @@
                         <span data-ng-show="detailForm.latitud.$error.number" class="req">*No es un número</span>
                         <input type="number" class="form-control" id="latitud" name="latitud" data-ng-model="campo.latitud" placeholder="Introduzca la latitud" required>
                     </label>
-                    
+
 
                     <label class="item item-input item-stacked-label" for="longitud">
                         <span class="input-label">Longitud</span>
@@ -31,14 +31,14 @@
                         <span data-ng-show="detailForm.longitud.$error.number" class="req">*No es un número</span>
                         <input type="number" class="form-control" id="longitud" name="longitud" data-ng-model="campo.longitud" placeholder="Introduzca la longitud" required>
                     </label>
-                    
+
                 </div>
 
                 <div class="control-group" data-ng-show ="campo.id">
                     <label class="item item-input item-stacked-label" for="pozo">
                         <span class="input-label">Pozos</span>
                     </label>
-                         
+
                         <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
                         <ul class="list">
                             <li class="item">
@@ -64,7 +64,7 @@
                 <br />
 
                 <button data-ng-click="go('/campo')" class="button button-assertive">Cancelar</button>
-                <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                <button data-ng-click="save(campo)" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
                 <button data-ng-click="delete()" data-ng-show="campo.id" class="btn btn-danger">Borrar</button>
             </fieldset>
             </form>

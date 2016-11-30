@@ -1,11 +1,14 @@
 <!--Author: Sari Haj Hussein-->
 <ion-view view-title="Pozo">
 <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div role="main" class="padding">
 
             <h2>Pozos</h2>
-                     
-                    <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
+
                     <ul class="list">
                         <li class="item">
                             <div class="row">
@@ -24,8 +27,8 @@
                             </div>
                         </li>
                     </ul>
-                    
-                
+
+
             <h3>Filtros Temporales</h3>
             <div class="list">
                 <label class="item item-input item-select">
@@ -36,7 +39,7 @@
                 </label>
             </div>
                 <button data-ng-click="filter()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-block button-positive">Filtrar</button>
-            
+
 </div>
 </ion-content>
 </ion-view>

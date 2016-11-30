@@ -1,10 +1,9 @@
 <!--Author: Sari Haj Hussein-->
 <ion-view view-title="Region-detail">
 <ion-content>
+
 <div role="main" class="padding">
 
-		
-        
                 <div data-ng-show="region.id"><h2>Detalles de la región</h2></div>
                 <div data-ng-show="region.id==null"><h2>Agregar región</h2></div>
 
@@ -16,13 +15,13 @@
                                 <span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
                                 <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="region.nombre" placeholder="Introduzca el nombre" required>
                             </label>
-                        
+
                             <label class="item item-input item-stacked-label" for="area"><span class="input-label">Área</span>
                             <span data-ng-show="detailForm.area.$error.required" class="req">*Requerido</span>
                             <span data-ng-show="detailForm.area.$error.number" class="req">*No es un número</span>
                             <input type="number" class="form-control" id="area" name="area" data-ng-model="region.area" placeholder="Introduzca el area" required>
                             </label>
-                        
+
                         </div>
                         <div class="list" data-ng-show ="region.id">
                             <label class="item item-input item-stacked-label" for="campo">Campos</label>
@@ -55,14 +54,14 @@
                         <br />
 
                         <button data-ng-click="go('/region')" class="button button-assertive">Cancelar</button>
-                        <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                        <button data-ng-click="save(region)" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
                         <button data-ng-click="delete()" data-ng-show="region.id" class="btn btn-danger">Borrar</button>
                     </fieldset>
                 </form>
 
                 <h3>Sensor mas frecuente</h3>
                 <label class="item item-input item-stacked-label" for="sensormasfrecuente">Sensor</label>
-                
+
                     <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
                     <ul class="list">
                         <li class="item">
@@ -81,7 +80,7 @@
                         </li>
                     </ul>
 
-            
+
 </div>
 </ion-content>
 </ion-view>

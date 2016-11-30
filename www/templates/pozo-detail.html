@@ -20,7 +20,7 @@
 
                         <div class="control-group" data-ng-show ="pozo.id">
                             <label class="item item-input item-stacked-label" for="sensor">Sensores</label>
-                                 
+
                                 <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
                                 <ul class="list">
                                     <li class="item">
@@ -41,19 +41,19 @@
                                         </div>
                                     </li>
                                 </ul>
-                                
-                            
+
+
 
                         </div>
 
                         <br />
 
                         <button data-ng-click="go('/pozo')" class="button button-assertive">Cancelar</button>
-                        <button data-ng-click="save()" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
+                        <button data-ng-click="save(pozo)" data-ng-disabled="noChange() || detailForm.$invalid" class="button button-positive">Guardar</button>
                         <button data-ng-click="delete()" data-ng-show="pozo.id" class="btn btn-danger">Borrar</button>
                     </fieldset>
                 </form>
-            
+
 </div>
 </ion-content>
 </ion-view>

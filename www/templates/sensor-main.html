@@ -1,10 +1,14 @@
 <!--Author: Sari Haj Hussein-->
 <ion-view view-title="Sensor">
 <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div role="main" class="padding">
-	
+
 			<h2>Sensores</h2>
-					
+
                     <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
                 	<ul class="list">
                 		<li class="item">
@@ -15,7 +19,7 @@
 							</div>
 						</li>
 					</ul>
-					
+
 					<ul class="list">
                 		<li class="item" ng-repeat="sensor in sensores| orderBy:['nombre','tipo']">
 							<div class="row">
@@ -25,7 +29,7 @@
 							</div>
 						</li>
 					</ul>
-				
+
 		</div>
 	</div>
 </div>

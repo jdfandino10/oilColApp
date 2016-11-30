@@ -1,6 +1,10 @@
 <!--Author: Sari Haj Hussein-->
 <ion-view view-title="Campo">
 <ion-content>
+  <ion-refresher
+    pulling-text="Pull to refresh..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
 <div role="main" class="padding">
 			<h2 class="padding">Campos</h2>
                 <div class="row"> <a href="" onclick="window.location.reload()"><i class="icon ion-android-refresh"></i> Actualizar </a></div>
@@ -26,8 +30,8 @@
 						</div>
 					</li>
 				</ul>
-					
-				
+
+
 
 			<h3>Filtros Temporales</h3>
 			<div class="list">
