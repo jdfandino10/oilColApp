@@ -1,8 +1,18 @@
 
 //setup angular
-var app = angular.module('starter',['ionic', 'ngResource', 'ngRoute', 'regionModule', 'campoModule', 'pozoModule', 'sensorModule', 'loginModule']);
+var app = angular.module('starter',['ionic', 'ngResource', 'ngRoute',
+  'regionModule', 'campoModule', 'pozoModule', 'sensorModule', 'loginModule']);
 
-app.constant('apiUrl', '/api');
+app.constant('apiUrl', 'http://172.24.42.110:9000/api')
+.constant('USER_ROLES',{admin:'admin',user:'user'})
+.constant('AUTH_EVENTS', {
+  loginSuccess : 'auth-login-success',
+  loginFailed : 'auth-login-failed',
+  logoutSuccess : 'auth-logout-success',
+  sessionTimeout : 'auth-session-timeout',
+  notAuthenticated : 'auth-not-authenticated',
+  notAuthorized : 'auth-not-authorized'
+});
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -40,22 +50,37 @@ app.config(['$routeProvider', function($routeProvider) {
   }
   ]);
 */
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
   $stateProvider
+
+
 
   .state('app', {
     url: '',
     abstract: true,
-    templateUrl: './templates/menu.html',
+    templateUrl: 'templates/menu.html',
     controller: 'logCtrl'
   })
 
-  .state('app.region', {
+
+    .state('app.login', {
+      url: '/login',
+      views:{
+       'menuContent':{
+         templateUrl: 'templates/inicio.html',
+       }
+      },controller: 'logCtrl'
+    })
+
+    .state('app.region', {
     url: '/region',
     views: {
       'menuContent': {
-        templateUrl: './templates/region-main.html',
-        controller: 'regionListCtrl'
+        templateUrl: 'templates/region-main.html',
+        controller: 'regionListCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+        }
       }
     }
   })
@@ -64,8 +89,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/region/create',
     views: {
       'menuContent': {
-        templateUrl: './templates/region-detail.html',
-        controller: 'regionCreateCtrl'
+        templateUrl: 'templates/region-detail.html',
+        controller: 'regionCreateCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin]
+        }
       }
     }
   })
@@ -74,8 +102,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/region/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: './templates/region-detail.html',
-         controller: 'regionEditCtrl'
+         templateUrl: 'templates/region-detail.html',
+         controller: 'regionEditCtrl',
+          data: {
+            authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+          }
        }
      }
   })
@@ -83,8 +114,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/campo',
     views: {
       'menuContent': {
-        templateUrl: './templates/campo-main.html',
-        controller: 'campoListCtrl'
+        templateUrl: 'templates/campo-main.html',
+        controller: 'campoListCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+        }
       }
     }
   })
@@ -93,8 +127,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/region/:id/campo/create',
     views: {
       'menuContent': {
-        templateUrl: './templates/campo-detail.html',
-        controller: 'campoCreateCtrl'
+        templateUrl: 'templates/campo-detail.html',
+        controller: 'campoCreateCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin]
+        }
       }
     }
   })
@@ -103,8 +140,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/campo/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: './templates/campo-detail.html',
-         controller: 'campoEditCtrl'
+         templateUrl: 'templates/campo-detail.html',
+         controller: 'campoEditCtrl',
+          data: {
+            authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+          }
        }
      }
   })
@@ -113,18 +153,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/campo/create',
     views: {
       'menuContent': {
-        templateUrl: './templates/campo-detail.html',
-        controller: 'campoCreateCtrl'
+        templateUrl: 'templates/campo-detail.html',
+        controller: 'campoCreateCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin]
+        }
       }
     }
   })
-  
+
   .state('app.pozo', {
     url: '/pozo',
     views: {
       'menuContent': {
-        templateUrl: './templates/pozo-main.html',
-        controller: 'pozoListCtrl'
+        templateUrl: 'templates/pozo-main.html',
+        controller: 'pozoListCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+        }
       }
     }
   })
@@ -133,8 +179,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/campo/:id/pozo/create',
     views: {
       'menuContent': {
-        templateUrl: './templates/pozo-detail.html',
-        controller: 'pozoCreateCtrl'
+        templateUrl: 'templates/pozo-detail.html',
+        controller: 'pozoCreateCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin]
+        }
       }
     }
   })
@@ -143,8 +192,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/pozo/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: './templates/pozo-detail.html',
-         controller: 'pozoEditCtrl'
+         templateUrl: 'templates/pozo-detail.html',
+         controller: 'pozoEditCtrl',
+          data: {
+            authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+          }
        }
      }
   })
@@ -153,8 +205,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/sensor',
     views: {
       'menuContent': {
-        templateUrl: './templates/sensor-main.html',
-        controller: 'sensorListCtrl'
+        templateUrl: 'templates/sensor-main.html',
+        controller: 'sensorListCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+        }
       }
     }
   })
@@ -163,8 +218,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     url: '/pozo/:id/sensor/create',
     views: {
       'menuContent': {
-        templateUrl: './templates/sensor-detail.html',
-        controller: 'sensorCreateCtrl'
+        templateUrl: 'templates/sensor-detail.html',
+        controller: 'sensorCreateCtrl',
+        data: {
+          authorizedRoles: [USER_ROLES.admin]
+        }
       }
     }
   })
@@ -173,13 +231,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/sensor/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: './templates/sensor-detail.html',
-         controller: 'sensorEditCtrl'
+         templateUrl: 'templates/sensor-detail.html',
+         controller: 'sensorEditCtrl',
+          data: {
+            authorizedRoles: [USER_ROLES.admin, USER_ROLES.user]
+          }
        }
      }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/region');
+  $urlRouterProvider.otherwise('/login');
 });
 
 app.config([
@@ -189,7 +250,10 @@ app.config([
         requireBase: false
       }).hashPrefix('!'); // enable the new HTML5 routing and history API
       // return $locationProvider.html5Mode(true).hashPrefix('!'); // enable the new HTML5 routing and history API
-    }]);
+    }]).
+config(['$httpProvider', function($httpProvider){
+$httpProvider.defaults.withCredentials = true;
+}]);
 
 app.controller('AppCtrl', ['$scope', 'ionicModal', '$location', function ($scope, $ionicModal, $location) {
     $scope.go = function(path) {
