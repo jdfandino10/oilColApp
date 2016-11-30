@@ -6,7 +6,7 @@
 
     var mod = ng.module("loginModule");
 
-    mod.controller('logCtrl', function($scope, $ionicModal, $timeout) {
+    mod.controller('logCtrl', function($scope, $ionicModal, $timeout, $location) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -23,6 +23,7 @@
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
+    $scope.modal.show();
   });
 
   // Triggered in the login modal to close it
@@ -41,10 +42,22 @@
 
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
+    $scope.logIN = true;
+
     $timeout(function() {
       $scope.closeLogin();
+      $location.path('/region')
     }, 1000);
   };
+
+  $scope.logout = function()
+  {
+    $scope.logIN = false;
+    $location.path('/login');
+    $scope.login();
+    //Deberia de usarse una promesa con $resource segun la petición de cerrar sesión que se haga
+  };
+
 })
 
 

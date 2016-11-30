@@ -18,20 +18,23 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close ng-show="!logIN" ng-click="login()">
           Login
         </ion-item>
-        <ion-item menu-close href="/region">
+        <ion-item menu-close href="/region" ng-show="logIN">
           Region
         </ion-item>
-        <ion-item menu-close href="/campo">
+        <ion-item menu-close href="/campo" ng-show="logIN">
           Campo
         </ion-item>
-        <ion-item menu-close href="/pozo">
+        <ion-item menu-close href="/pozo" ng-show="logIN">
           Pozo
         </ion-item>
-        <ion-item menu-close href="/sensor">
+        <ion-item menu-close href="/sensor" ng-show="logIN">
           Sensor
+        </ion-item>
+        <ion-item menu-close ng-click="logout()" ng-show="logIN">
+          LogOut
         </ion-item>
       </ion-list>
     </ion-content>
