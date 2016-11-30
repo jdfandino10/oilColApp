@@ -3,7 +3,7 @@
 var app = angular.module('starter',['ionic', 'ngResource', 'ngRoute',
   'regionModule', 'campoModule', 'pozoModule', 'sensorModule', 'loginModule']);
 
-app.constant('apiUrl', '/api')
+app.constant('apiUrl', 'http://172.24.42.110:9000/api')
 .constant('USER_ROLES',{admin:'admin',user:'user'})
 .constant('AUTH_EVENTS', {
   loginSuccess : 'auth-login-success',
