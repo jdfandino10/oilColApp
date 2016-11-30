@@ -16,7 +16,7 @@
             $scope.pozos = Pozos.query();
             $scope.go('/pozo');
         };
-        //$scope.pozos = [{"id":1,"estado":"bien"}];
+       // $scope.pozos = [{"id":1,"estado":"bien"}];
     }]);
 
 // the create controller

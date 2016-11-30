@@ -16,7 +16,7 @@
             $scope.campos = camposFiltrados.query();
             $scope.go('/campo');
         };
-        //$scope.campos = [{"id":1,"nombre":"ejemplo","latitud":1,"longitud":1}];
+       // $scope.campos = [{"id":1,"nombre":"ejemplo","latitud":1,"longitud":1}];
     }]);
 
 // the create controller
