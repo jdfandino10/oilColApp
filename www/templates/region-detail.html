@@ -14,12 +14,12 @@
                     <fieldset>
                         <div class="list">
                             <label class="item item-input item-stacked-label" for="nombre">
-                                <span class="input-label">Nombre </span>
+                                <span class="input-label"><b>Nombre</b> </span>
                                 <span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
                                 <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="region.nombre" placeholder="Introduzca el nombre" required>
                             </label>
 
-                            <label class="item item-input item-stacked-label" for="area"><span class="input-label">Área</span>
+                            <label class="item item-input item-stacked-label" for="area"><span class="input-label"><b>Área</b></span>
                             <span data-ng-show="detailForm.area.$error.required" class="req">*Requerido</span>
                             <span data-ng-show="detailForm.area.$error.number" class="req">*No es un número</span>
                             <input type="number" class="form-control" id="area" name="area" data-ng-model="region.area" placeholder="Introduzca el area" required>
@@ -27,16 +27,16 @@
 
                         </div>
                         <div class="list" data-ng-show ="region.id">
-                            <label class="item item-input item-stacked-label" for="campo">Campos</label>
+                            <label class="item item-input item-stacked-label" for="campo"><b>Campos</b></label>
 
                                <ul class="list">
                                     <li class="item">
                                         <div class="row">
-                                            <div class="col" data-ng-show="region.campos.length > 0">Nombre</div>
-                                            <div class="col" data-ng-show="region.campos.length > 0">Latitud</div>
-                                            <div class="col" data-ng-show="region.campos.length > 0">Longitud</div>
-                                            <div class="col" data-ng-show="region.campos.length == 0">Todavía no hay campos para esta región. ¡Agrega uno!</div>
-                                            <div class="col"><a href="/region/{{region.id}}/campo/create"><i class="icon ion-plus-circled"></i></a></div>
+                                            <div class="col" data-ng-show="region.campos.length > 0"><b>Nombre</b></div>
+                                            <div class="col" data-ng-show="region.campos.length > 0"><b>Latitud</b></div>
+                                            <div class="col" data-ng-show="region.campos.length > 0"><b>Longitud</b></div>
+                                            <div class="col" data-ng-show="region.campos.length == 0">No hay ¡Agrega uno!</div>
+                                            <div class="col col-10"><a href="/region/{{region.id}}/campo/create"><i class="icon ion-plus-circled"></i></a></div>
                                         </div>
                                     </li>
                                 </ul>

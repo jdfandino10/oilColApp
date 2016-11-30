@@ -16,22 +16,22 @@
                     <fieldset>
                         <div class="list">
                             <label class="item item-input item-stacked-label" for="estado">
-                            <span class="input-label">Estado</span>
+                            <span class="input-label"><b>Estado</b></span>
                             <span data-ng-show="detailForm.estado.$error.required" class="req">*Requerido</span>
                             <input type="text" class="form-control" id="estado" name="estado" data-ng-model="pozo.estado" placeholder="Introduzca el estado" required>
                             </label>
                         </div>
 
                         <div class="control-group" data-ng-show ="pozo.id">
-                            <label class="item item-input item-stacked-label" for="sensor">Sensores</label>
+                            <label class="item item-input item-stacked-label" for="sensor"><b>Sensores</b></label>
 
                                 <ul class="list">
                                     <li class="item">
                                         <div class="row">
-                                            <div class="col" data-ng-show="pozo.sensores.length > 0">Nombre</div>
-                                            <div class="col" data-ng-show="pozo.sensores.length > 0">Tipo Sensor</div>
-                                            <div class="col" data-ng-show="pozo.sensores.length == 0">Todavía no hay sensores para este pozo. ¡Agrega uno!</div>
-                                            <div class="col"><a href="/pozo/{{pozo.id}}/sensor/create"><i class="icon ion-plus-circled"></i></a></div>
+                                            <div class="col" data-ng-show="pozo.sensores.length > 0"><b>Nombre</b></div>
+                                            <div class="col" data-ng-show="pozo.sensores.length > 0"><b>Tipo Sensor</b></div>
+                                            <div class="col" data-ng-show="pozo.sensores.length == 0">No hay. ¡Agrega uno!</div>
+                                            <div class="col col-10"><a href="/pozo/{{pozo.id}}/sensor/create"><i class="icon ion-plus-circled"></i></a></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -40,7 +40,7 @@
                                         <div class="row">
                                             <div class="col">{{sensor.nombre}} </div>
                                             <div class="col">{{tipos_sensor[sensor.tipo]}} </div>
-                                            <div class="col"><a href="/sensor/edit/{{sensor.id}}"><i class="icon ion-android-create"></i></a></div>
+                                            <div class="col col-10"><a href="/sensor/edit/{{sensor.id}}"><i class="icon ion-android-create"></i></a></div>
                                         </div>
                                     </li>
                                 </ul>

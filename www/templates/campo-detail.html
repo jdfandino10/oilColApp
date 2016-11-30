@@ -16,13 +16,13 @@
                    <fieldset>
                         <div class="list">
                             <label class="item item-input item-stacked-label" for="nombre">
-                                <span class="input-label">Nombre </span><span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
+                                <span class="input-label"><b>Nombre</b> </span><span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
                                 <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="campo.nombre" placeholder="Introduzca el nombre" required>
                             </label>
 
 
                     <label class="item item-input item-stacked-label" for="latitud">
-                        <span class="input-label">Latitud</span>
+                        <span class="input-label"><b>Latitud</b></span>
                         <span data-ng-show="detailForm.latitud.$error.required" class="req">*Requerido</span>
                         <span data-ng-show="detailForm.latitud.$error.number" class="req">*No es un número</span>
                         <input type="number" class="form-control" id="latitud" name="latitud" data-ng-model="campo.latitud" placeholder="Introduzca la latitud" required>
@@ -30,7 +30,7 @@
 
 
                     <label class="item item-input item-stacked-label" for="longitud">
-                        <span class="input-label">Longitud</span>
+                        <span class="input-label"><b>Longitud</b></span>
                         <span data-ng-show="detailForm.longitud.$error.required" class="req">*Requerido</span>
                         <span data-ng-show="detailForm.longitud.$error.number" class="req">*No es un número</span>
                         <input type="number" class="form-control" id="longitud" name="longitud" data-ng-model="campo.longitud" placeholder="Introduzca la longitud" required>
@@ -40,16 +40,16 @@
 
                 <div class="control-group" data-ng-show ="campo.id">
                     <label class="item item-input item-stacked-label" for="pozo">
-                        <span class="input-label">Pozos</span>
+                        <span class="input-label"><b>Pozos</b></span>
                     </label>
 
                         <ul class="list">
                             <li class="item">
                                 <div class="row">
-                                    <div class="col" data-ng-show="campo.pozos.length > 0">ID</div>
-                                    <div class="col" data-ng-show="campo.pozos.length > 0">Estado</div>
-                                    <div class="col" data-ng-show="campo.pozos.length == 0">Todavía no hay pozos para esta región. ¡Agrega uno!</div>
-                                    <div class="col"><a href="/campo/{{campo.id}}/pozo/create"><i class="icon ion-plus-circled"></i></a></div>
+                                    <div class="col" data-ng-show="campo.pozos.length > 0"><b>ID</b></div>
+                                    <div class="col" data-ng-show="campo.pozos.length > 0"><b>Estado</b></div>
+                                    <div class="col" data-ng-show="campo.pozos.length == 0">No hay. ¡Agrega uno!</div>
+                                    <div class="col col-10"><a href="/campo/{{campo.id}}/pozo/create"><i class="icon ion-plus-circled"></i></a></div>
                                 </div>
                             </li>
                         </ul>
@@ -58,7 +58,7 @@
                                 <div class="row" >
                                     <div class="col"> {{pozo.id}}</div>
                                     <div class="col"> {{pozo.estado}}</div>
-                                    <div class="col"><a href="/pozo/edit/{{pozo.id}}"><i class="icon ion-android-create"></i></a></div>
+                                    <div class="col col-10"><a href="/pozo/edit/{{pozo.id}}"><i class="icon ion-android-create"></i></a></div>
                                 </div>
                             </li>
                         </ul>

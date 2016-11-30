@@ -16,26 +16,26 @@
                     <fieldset>
                         <div class="list">
                             <label class="item item-input item-stacked-label" for="nombre">
-                                <span class="input-label">Nombre </span>
+                                <span class="input-label"><b>Nombre</b> </span>
                                 <span data-ng-show="detailForm.nombre.$error.required" class="req">*Requerido</span>
                                 <input type="text" class="form-control" id="nombre" name="nombre" data-ng-model="sensor.nombre" placeholder="Introduzca el nombre" required>
                             </label>
                             <label class="item item-input item-select" for="tipo">
-                            <div class="input-label">Tipo sensor</div>
+                            <div class="input-label"><b>Tipo sensor</b></div>
                             <select id="tipo" name="tipo" data-ng-model="sensor.tipo" ng-options="tipos_string[x] for x in tipos"></select>
                             <span data-ng-show="detailForm.tipo.$error.required" class="req">*Requerido</span>
                             </label>
                         </div>
 
                         <div class="control-group" data-ng-show ="sensor.id">
-                            <label class="item item-input item-stacked-label" for="medicion">Mediciones</label>
+                            <label class="item item-input item-stacked-label" for="medicion"><b>Mediciones</b></label>
 
                                <ul class="list">
                                     <li class="item">
                                         <div class="row">
-                                            <div class="col" data-ng-show="sensor.mediciones.length > 0">Fecha</div>
-                                            <div class="col" data-ng-show="sensor.mediciones.length > 0">Valor</div>
-                                            <div class="col" data-ng-show="sensor.mediciones.length == 0">Todavía no hay mediciones para este sensor. Esperando a recibirlas...</div>
+                                            <div class="col" data-ng-show="sensor.mediciones.length > 0"><b>Fecha</b></div>
+                                            <div class="col" data-ng-show="sensor.mediciones.length > 0"><b>Valor</b></div>
+                                            <div class="col" data-ng-show="sensor.mediciones.length == 0">No hay. Esperando a recibirlas...</div>
                                         </div>
                                     </li>
                                 </ul>
