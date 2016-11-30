@@ -14,7 +14,7 @@
         $scope.pozos = Pozos.query() // for the list of pozos in public/html/main.html
         $scope.filter = function() {
             var Pozos = $resource(apiUrl + "/pozos", {periodo: $scope.filtro}); // a RESTful-capable resource object
-           // $scope.pozos = Pozos.query();
+            $scope.pozos = Pozos.query();
             $scope.go('/pozo');
         };
         $scope.go = function(path) {

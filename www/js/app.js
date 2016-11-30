@@ -27,6 +27,7 @@ app.run(function($ionicPlatform) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
 });
 /*
@@ -53,7 +54,8 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
   $stateProvider
 
 
-  .state('default', {
+
+  .state('app', {
     url: '',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -61,7 +63,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
   })
 
 
-    .state('default.login', {
+    .state('app.login', {
       url: '/login',
       views:{
        'menuContent':{
@@ -70,7 +72,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
       },controller: 'logCtrl'
     })
 
-    .state('default.region', {
+    .state('app.region', {
     url: '/region',
     views: {
       'menuContent': {
@@ -83,7 +85,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.regionCreate', {
+  .state('app.regionCreate', {
     url: '/region/create',
     views: {
       'menuContent': {
@@ -96,7 +98,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.regionEdit', {
+  .state('app.regionEdit', {
       url: '/region/edit/:id',
       views: {
         'menuContent': {
@@ -108,7 +110,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
        }
      }
   })
-  .state('default.campo', {
+  .state('app.campo', {
     url: '/campo',
     views: {
       'menuContent': {
@@ -121,7 +123,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.campoCreate', {
+  .state('app.campoCreate', {
     url: '/region/:id/campo/create',
     views: {
       'menuContent': {
@@ -134,7 +136,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.campoEdit', {
+  .state('app.campoEdit', {
       url: '/campo/edit/:id',
       views: {
         'menuContent': {
@@ -147,7 +149,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
      }
   })
 
-  .state('default.campoCreate2', {
+  .state('app.campoCreate2', {
     url: '/campo/create',
     views: {
       'menuContent': {
@@ -160,7 +162,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.pozo', {
+  .state('app.pozo', {
     url: '/pozo',
     views: {
       'menuContent': {
@@ -173,7 +175,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.pozoCreate', {
+  .state('app.pozoCreate', {
     url: '/campo/:id/pozo/create',
     views: {
       'menuContent': {
@@ -186,7 +188,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.pozoEdit', {
+  .state('app.pozoEdit', {
       url: '/pozo/edit/:id',
       views: {
         'menuContent': {
@@ -199,7 +201,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
      }
   })
 
-  .state('default.sensor', {
+  .state('app.sensor', {
     url: '/sensor',
     views: {
       'menuContent': {
@@ -212,7 +214,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.sensorCreate', {
+  .state('app.sensorCreate', {
     url: '/pozo/:id/sensor/create',
     views: {
       'menuContent': {
@@ -225,7 +227,7 @@ app.config(function($stateProvider, $urlRouterProvider, USER_ROLES) {
     }
   })
 
-  .state('default.sensorEdit', {
+  .state('app.sensorEdit', {
       url: '/sensor/edit/:id',
       views: {
         'menuContent': {
