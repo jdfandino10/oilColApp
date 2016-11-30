@@ -17,6 +17,7 @@ app.run(function($ionicPlatform) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
 });
 /*
@@ -42,137 +43,137 @@ app.config(['$routeProvider', function($routeProvider) {
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-  .state('default', {
+  .state('app', {
     url: '',
     abstract: true,
-    templateUrl: 'templates/menu.html',
+    templateUrl: './templates/menu.html',
     controller: 'logCtrl'
   })
 
-  .state('default.region', {
+  .state('app.region', {
     url: '/region',
     views: {
       'menuContent': {
-        templateUrl: 'templates/region-main.html',
+        templateUrl: './templates/region-main.html',
         controller: 'regionListCtrl'
       }
     }
   })
 
-  .state('default.regionCreate', {
+  .state('app.regionCreate', {
     url: '/region/create',
     views: {
       'menuContent': {
-        templateUrl: 'templates/region-detail.html',
+        templateUrl: './templates/region-detail.html',
         controller: 'regionCreateCtrl'
       }
     }
   })
 
-  .state('default.regionEdit', {
+  .state('app.regionEdit', {
       url: '/region/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: 'templates/region-detail.html',
+         templateUrl: './templates/region-detail.html',
          controller: 'regionEditCtrl'
        }
      }
   })
-  .state('default.campo', {
+  .state('app.campo', {
     url: '/campo',
     views: {
       'menuContent': {
-        templateUrl: 'templates/campo-main.html',
+        templateUrl: './templates/campo-main.html',
         controller: 'campoListCtrl'
       }
     }
   })
 
-  .state('default.campoCreate', {
+  .state('app.campoCreate', {
     url: '/region/:id/campo/create',
     views: {
       'menuContent': {
-        templateUrl: 'templates/campo-detail.html',
+        templateUrl: './templates/campo-detail.html',
         controller: 'campoCreateCtrl'
       }
     }
   })
 
-  .state('default.campoEdit', {
+  .state('app.campoEdit', {
       url: '/campo/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: 'templates/campo-detail.html',
+         templateUrl: './templates/campo-detail.html',
          controller: 'campoEditCtrl'
        }
      }
   })
 
-  .state('default.campoCreate2', {
+  .state('app.campoCreate2', {
     url: '/campo/create',
     views: {
       'menuContent': {
-        templateUrl: 'templates/campo-detail.html',
+        templateUrl: './templates/campo-detail.html',
         controller: 'campoCreateCtrl'
       }
     }
   })
   
-  .state('default.pozo', {
+  .state('app.pozo', {
     url: '/pozo',
     views: {
       'menuContent': {
-        templateUrl: 'templates/pozo-main.html',
+        templateUrl: './templates/pozo-main.html',
         controller: 'pozoListCtrl'
       }
     }
   })
 
-  .state('default.pozoCreate', {
+  .state('app.pozoCreate', {
     url: '/campo/:id/pozo/create',
     views: {
       'menuContent': {
-        templateUrl: 'templates/pozo-detail.html',
+        templateUrl: './templates/pozo-detail.html',
         controller: 'pozoCreateCtrl'
       }
     }
   })
 
-  .state('default.pozoEdit', {
+  .state('app.pozoEdit', {
       url: '/pozo/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: 'templates/pozo-detail.html',
+         templateUrl: './templates/pozo-detail.html',
          controller: 'pozoEditCtrl'
        }
      }
   })
 
-  .state('default.sensor', {
+  .state('app.sensor', {
     url: '/sensor',
     views: {
       'menuContent': {
-        templateUrl: 'templates/sensor-main.html',
+        templateUrl: './templates/sensor-main.html',
         controller: 'sensorListCtrl'
       }
     }
   })
 
-  .state('default.sensorCreate', {
+  .state('app.sensorCreate', {
     url: '/pozo/:id/sensor/create',
     views: {
       'menuContent': {
-        templateUrl: 'templates/sensor-detail.html',
+        templateUrl: './templates/sensor-detail.html',
         controller: 'sensorCreateCtrl'
       }
     }
   })
 
-  .state('default.sensorEdit', {
+  .state('app.sensorEdit', {
       url: '/sensor/edit/:id',
       views: {
         'menuContent': {
-         templateUrl: 'templates/sensor-detail.html',
+         templateUrl: './templates/sensor-detail.html',
          controller: 'sensorEditCtrl'
        }
      }

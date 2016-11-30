@@ -10,13 +10,13 @@
     mod.controller("pozoListCtrl", ["$scope", "$resource", "apiUrl", "$routeParams", function($scope, $resource, apiUrl, $routeParams) {
         $scope.filtros = ["diario", "semanal", "mensual", "trimestral", "semestral", "anual"];
         var Pozos = $resource(apiUrl + "/pozos", {periodo: $scope.filtro}); // a RESTful-capable resource object
-        //$scope.pozos = Pozos.query() // for the list of pozos in public/html/main.html
+        $scope.pozos = Pozos.query() // for the list of pozos in public/html/main.html
         $scope.filter = function() {
             var Pozos = $resource(apiUrl + "/pozos", {periodo: $scope.filtro}); // a RESTful-capable resource object
-           // $scope.pozos = Pozos.query();
+            $scope.pozos = Pozos.query();
             $scope.go('/pozo');
         };
-        $scope.pozos = [{"id":1,"estado":"bien"}];
+        //$scope.pozos = [{"id":1,"estado":"bien"}];
     }]);
 
 // the create controller

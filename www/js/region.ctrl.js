@@ -9,8 +9,8 @@
 // the list controller
     mod.controller("regionListCtrl", ["$scope", "$resource", "apiUrl", function($scope, $resource, apiUrl) {
         var Regiones = $resource(apiUrl + "/regiones"); // a RESTful-capable resource object
-        //$scope.regiones = Regiones.query(); // for the list of regiones in public/html/main.html
-        $scope.regiones = [{"id":1,"nombre":"Ejemplo","area":12}];
+        $scope.regiones = Regiones.query(); // for the list of regiones in public/html/main.html
+        //$scope.regiones = [{"id":1,"nombre":"Ejemplo","area":12}];
     }]);
 
 // the create controller
